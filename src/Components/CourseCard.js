@@ -1,10 +1,11 @@
 import React from 'react'
-import './courseCard.css'
+import './styles/courseCard.css'
+import { NavLink } from 'react-router-dom'
 
 function CourseCard({course}) {
   return (
     <>
-    <div className='card-container'>
+    <NavLink to={`/courses/${course.id}`} className='card-container shadow-dark'>
         <div style={{
             // backgroundColor: '#25282B',
             color: '#4492E6',
@@ -14,14 +15,14 @@ function CourseCard({course}) {
             
         }}>{course.name}</div>
         <div style={{color:'#aaa', marginBottom:'1rem'}}>{course.faculty}</div>
-        {course.tasks.map((task)=>{
+        {course.tasks.map((x)=>{
             return(
-                <div key={task} style={{
-                    color: '#fff',
-                }}>{task}</div>
+                <div key={x.id} style={{
+                    color: '#ffffffbf',
+                }}>{x.task}</div>
             )
         })}
-    </div>
+    </NavLink>
     </>
   )
 }

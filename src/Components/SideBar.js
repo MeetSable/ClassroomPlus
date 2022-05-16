@@ -1,38 +1,26 @@
-import React from 'react'
 import {bool} from 'prop-types';
-import { StyledSideBar } from './SideBar.styled';
-import { Link } from 'react-router-dom';
+import { StyledSideBar} from './SideBar.styled';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import './styles/SideBar.css';
+import { Pages } from '../App';
+
+const listItem = (x)=>{
+    return(
+        <NavLink to={x.path} key={x.id} className='list-item'>{x.name}</NavLink>
+    )
+}
 
 function SideBar({open}) {
     SideBar.propTypes = {
         open: bool.isRequired,
     }
 
-    const LiStyle={
-        padding: '2rem',
-    }
-    const TextStyle={
-        color: '#4492E6',
-        fontWeight: '600',
-        fontSize: '2rem',
-        fontStyle: 'normal',
-
-    }
-
     return (
         <>
-        <StyledSideBar open={open} aria-hidden={!open}>
-        <div style={{
-            margin: '6rem 0 0 0',
-            justifyContent: 'center',
-        }}>
-
-            <div  style={LiStyle}><NavLink to="/" style={TextStyle}>Study Hall</NavLink></div>
-            <div  style={LiStyle}><NavLink to="/facultyblock" style={TextStyle}>Faculty Block</NavLink></div>
-            <div  style={LiStyle}><NavLink to="/adminblock"  style={TextStyle}>Admin Block</NavLink></div>
-            <div  style={LiStyle}><NavLink to="/students" style={TextStyle}>Students</NavLink></div>
-        </div>
+        <StyledSideBar open={open} className='list'>
+            {Pages.map(listItem)}
+            <NavLink to='/logout' id='log-out' className='list-item'>Log Out</NavLink>
         </StyledSideBar>
         </>
     )
