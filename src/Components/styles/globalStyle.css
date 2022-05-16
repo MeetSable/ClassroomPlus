@@ -1,0 +1,16 @@
+.shadow-dark{
+    box-shadow: 5px 5px 10px 0 #000000, -5px -5px 10px 0 #ffffff1f;
+}
+
+.shadow-dark-without-hover{
+    box-shadow: 5px 5px 10px 0 #000000, -5px -5px 10px 0 #ffffff1f;
+}
+
+.shadow-dark:hover{
+    transition: 200ms ease-out;
+    box-shadow: 1px 1px 5px 0 #000000, -1px -1px 5px 0 #ffffff48;
+}
+
+.shadow-dark:onClick{
+    box-shadow:inset 1px 1px 5px 0 #000000,inset -1px -1px 5px 0 #ffffff48;
+}
